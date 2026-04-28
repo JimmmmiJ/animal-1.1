@@ -6,7 +6,15 @@
 ## 给朋友的使用步骤
 
 1. 安装并打开 Docker Desktop。
-2. 下载本仓库代码。
+2. 下载本仓库代码。推荐用 `git clone`：
+
+```powershell
+git clone https://github.com/JimmmmiJ/animal-1.1.git
+cd animal-1.1
+```
+
+如果电脑上没有 Git，也可以在 GitHub 页面点 `Code` -> `Download ZIP`，下载后解压。
+
 3. 下载离线镜像包：  
    [animal-2.0-images.tar](https://github.com/JimmmmiJ/animal-1.1/releases/download/v1.1.0/animal-2.0-images.tar)
 4. 把 `animal-2.0-images.tar` 放到项目根目录。
