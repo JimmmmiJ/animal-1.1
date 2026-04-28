@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+target/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+
+# Build
+dist/
+build/
+offline-images/
+*.tar
+
+# Logs
+logs/
+*.log
+
+# Environment
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Maven
+.mvn/
+
+# Project artifacts / presentation materials
+code_images/
+pdf_images/
+manual_check/
+deploy_images/
+*.pdf
+code_content.txt
+manual_content.txt
+findings.md
+progress.md
+task_plan.md

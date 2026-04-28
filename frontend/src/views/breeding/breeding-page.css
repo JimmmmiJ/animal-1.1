@@ -1,0 +1,459 @@
+.manual33-page {
+  min-width: 1024px;
+}
+
+.manual33-top-btn {
+  height: 38px;
+  min-width: 106px;
+  border: 1px solid #d6dde8;
+  border-radius: 4px;
+  background: #fff;
+  color: #26384f;
+  font-size: 14px;
+  line-height: 1;
+  box-shadow: 0 1px 1px rgba(15, 35, 80, 0.03);
+}
+
+.manual33-top-btn + .manual33-top-btn {
+  margin-left: 10px;
+}
+
+.manual33-top-btn--primary {
+  border-color: #183f91;
+  background: #143b8c;
+  color: #fff;
+}
+
+.manual33-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 26px;
+}
+
+.manual33-stat-card {
+  min-height: 148px;
+  padding: 18px 21px 16px;
+  border: 1px solid #e6ebf2;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(23, 32, 51, 0.09);
+}
+
+.manual33-stat-head,
+.manual33-stat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.manual33-stat-head span,
+.manual33-stat-row span {
+  color: #68778c;
+  font-size: 13px;
+}
+
+.manual33-stat-card strong {
+  display: block;
+  margin-top: 8px;
+  margin-bottom: 20px;
+  color: #111827;
+  font-size: 26px;
+  line-height: 1;
+}
+
+.manual33-tag {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 8px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.manual33-tag--pink { background: #fee7f2; color: #cc2472; }
+.manual33-tag--yellow { background: #fff6cf; color: #9a7600; }
+.manual33-tag--green { background: #ddf9e7; color: #168848; }
+.manual33-tag--purple { background: #f3defd; color: #8b36c3; }
+
+.manual33-progress {
+  height: 4px;
+  margin: 7px 0 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e7e9ef;
+}
+
+.manual33-progress i {
+  display: block;
+  height: 100%;
+}
+
+.manual33-progress--pink { background: #ee3a9f; }
+.manual33-progress--yellow { background: #f2c200; }
+.manual33-progress--green { background: #21c76a; }
+.manual33-progress--purple { background: #a64eea; }
+
+.manual33-panel :deep(.manual-panel-card__header) {
+  min-height: 54px;
+}
+
+.manual33-mini-btn {
+  height: 30px;
+  padding: 0 13px;
+  border: 1px solid #d8dee9;
+  border-radius: 4px;
+  background: #fff;
+  color: #26384f;
+  font-size: 13px;
+}
+
+.manual33-mini-btn + .manual33-mini-btn {
+  margin-left: 8px;
+}
+
+.manual33-table-wrap {
+  max-height: 500px;
+}
+
+.manual33-table th {
+  height: 44px;
+  color: #6f7f93;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.manual33-table td {
+  height: 47px;
+  color: #4f5d72;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.manual33-strong {
+  color: #152945 !important;
+  font-weight: 600;
+}
+
+.manual33-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #26384f;
+  font-weight: 600;
+}
+
+.manual33-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.manual33-dot--pink { background: #ef3f9d; }
+.manual33-dot--yellow { background: #f59e0b; }
+.manual33-dot--green { background: #10b981; }
+.manual33-dot--gray { background: #aab4c2; }
+
+.manual33-prob {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.manual33-prob i {
+  width: 58px;
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e8ebf0;
+}
+
+.manual33-prob em {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: #ec3d9d;
+}
+
+.manual33-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 124px;
+}
+
+.manual33-link {
+  border: 0;
+  background: transparent;
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.manual33-link--blue { color: #1f62cc; }
+.manual33-link--purple { color: #9c27b0; }
+.manual33-link--green { color: #15954e; }
+
+.manual33-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.48);
+}
+
+.manual33-modal {
+  overflow: hidden;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 18px 44px rgba(15, 23, 42, 0.28);
+}
+
+.manual33-modal--config {
+  width: 646px;
+}
+
+.manual33-modal--detail {
+  width: 860px;
+}
+
+.manual33-modal--small {
+  width: 560px;
+}
+
+.manual33-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 55px;
+  padding: 0 20px;
+  border-bottom: 1px solid #eef1f5;
+}
+
+.manual33-modal-header h3 {
+  margin: 0;
+  color: #111827;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.manual33-modal-header button {
+  width: 26px;
+  height: 26px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: #6c788a;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.manual33-modal-body {
+  padding: 18px 20px 20px;
+}
+
+.manual33-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 14px;
+}
+
+.manual33-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: #435166;
+  font-size: 13px;
+}
+
+.manual33-field--full {
+  grid-column: 1 / -1;
+}
+
+.manual33-field input,
+.manual33-field select,
+.manual33-field textarea {
+  width: 100%;
+  border: 1px solid #d6dce6;
+  border-radius: 4px;
+  background: #fff;
+  color: #1f2937;
+  font-size: 14px;
+  outline: none;
+}
+
+.manual33-field input,
+.manual33-field select {
+  height: 34px;
+  padding: 0 11px;
+}
+
+.manual33-field textarea {
+  min-height: 78px;
+  padding: 10px 11px;
+  resize: vertical;
+}
+
+.manual33-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 14px 20px 20px;
+}
+
+.manual33-btn {
+  height: 35px;
+  min-width: 56px;
+  padding: 0 16px;
+  border: 1px solid #d7dde7;
+  border-radius: 4px;
+  background: #fff;
+  color: #25334a;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.manual33-btn--primary {
+  border-color: #163d8c;
+  background: #163d8c;
+  color: #fff;
+}
+
+.manual33-btn--purple {
+  border-color: #9828d1;
+  background: #9828d1;
+  color: #fff;
+}
+
+.manual33-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.manual33-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-bottom: 18px;
+}
+
+.manual33-info-card {
+  padding: 16px 16px 14px;
+  border-radius: 4px;
+  background: #f8fafc;
+}
+
+.manual33-info-card h4,
+.manual33-section-title {
+  margin: 0 0 12px;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.manual33-info-card p {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 0 0 12px;
+  color: #5d6b7d;
+  font-size: 14px;
+}
+
+.manual33-info-card p:last-child {
+  margin-bottom: 0;
+}
+
+.manual33-info-card b {
+  color: #111827;
+  font-weight: 500;
+}
+
+.manual33-text-pink {
+  color: #df2c89 !important;
+}
+
+.manual33-inner-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.manual33-inner-table th {
+  height: 32px;
+  padding: 0 12px;
+  background: #f8fafc;
+  color: #7b8797;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: left;
+}
+
+.manual33-inner-table td {
+  height: 32px;
+  padding: 0 12px;
+  border-top: 1px solid #edf1f5;
+  color: #5f6b7d;
+  font-size: 13px;
+}
+
+.manual33-report-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.manual33-report-grid div {
+  padding: 12px;
+  border-radius: 4px;
+  background: #f8fafc;
+}
+
+.manual33-report-grid span {
+  display: block;
+  color: #718096;
+  font-size: 12px;
+}
+
+.manual33-report-grid b {
+  display: block;
+  margin-top: 6px;
+  color: #111827;
+  font-size: 20px;
+}
+
+.manual33-message {
+  margin: 0;
+  color: #4b5a6f;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+@media (max-width: 1200px) {
+  .manual33-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .manual33-card-grid,
+  .manual33-form-grid,
+  .manual33-detail-grid,
+  .manual33-report-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .manual33-modal,
+  .manual33-modal--config,
+  .manual33-modal--detail,
+  .manual33-modal--small {
+    width: min(100%, 640px);
+  }
+}

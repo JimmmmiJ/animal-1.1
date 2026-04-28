@@ -1,0 +1,99 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: livestock-health-platform
+  
+  profiles:
+    active: dev
+  
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/livestock_health?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: ${MYSQL_USER:livestock}
+    password: ${MYSQL_PASSWORD:livestock123}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      idle-timeout: 300000
+      max-lifetime: 1200000
+      connection-timeout: 30000
+  
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+    open-in-view: false
+  
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+      database: 0
+      timeout: 5000ms
+      lettuce:
+        pool:
+          max-active: 20
+          max-idle: 10
+          min-idle: 5
+  
+  elasticsearch:
+    uris: http://${ELASTICSEARCH_HOST:localhost}:${ELASTICSEARCH_PORT:9200}
+    socket-timeout: 10s
+    connection-timeout: 10s
+
+# JWT 配置
+jwt:
+  secret: ${JWT_SECRET:livestock-health-platform-secret-key-2024}
+  expiration: 86400000  # 24 小时
+  refresh-expiration: 604800000  # 7 天
+
+# 文件上传配置
+spring.servlet:
+  multipart:
+    max-file-size: 10MB
+    max-request-size: 10MB
+
+# 日志配置
+logging:
+  level:
+    root: INFO
+    com.livestock.health: DEBUG
+    org.springframework.security: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/livestock-health.log
+    max-size: 10MB
+    max-history: 30
+
+# 自定义配置
+app:
+  config:
+    # 数据保留天数
+    data-retention-days: 365
+    # 告警推送开关
+    alert-push-enabled: true
+    # 体温正常范围
+    temperature:
+      min: 38.0
+      max: 41.0
+    # 心率正常范围
+    heart-rate:
+      min: 60
+      max: 120
+    # 反刍时间正常范围 (分钟)
+    rumination:
+      min: 280
+      max: 360
+    # 采食次数正常范围
+    feeding:
+      min: 15
+      max: 25
