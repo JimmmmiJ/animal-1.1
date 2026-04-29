@@ -26,6 +26,12 @@ cd animal-1.1
 
 如果目标电脑未安装 Git，也可以在 GitHub 仓库页面点击 `Code` -> `Download ZIP`，下载后解压到本地目录。
 
+项目根目录不是固定的本机路径，而是代码下载或解压后的目录：
+
+- 使用 `git clone` 时，项目根目录通常是 `animal-1.1`。
+- 使用 `Download ZIP` 时，项目根目录通常是解压后的 `animal-1.1-main`。
+- 判断标准是该目录下能看到 `docker-compose.yml`、`start-offline.bat` 和 `start-offline.ps1`。
+
 ## 下载离线镜像包
 
 请从 Release 下载离线镜像包：
