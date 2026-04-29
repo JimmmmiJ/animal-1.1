@@ -97,3 +97,17 @@ app:
     feeding:
       min: 15
       max: 25
+
+# 真实设备遥测接入配置
+iot:
+  telemetry:
+    api-key: ${IOT_TELEMETRY_API_KEY:demo-iot-key}
+
+mqtt:
+  enabled: ${MQTT_ENABLED:false}
+  broker-url: ${MQTT_BROKER_URL:tcp://localhost:1883}
+  client-id: ${MQTT_CLIENT_ID:livestock-backend}
+  topic: ${MQTT_TOPIC:livestock/+/telemetry}
+  qos: ${MQTT_QOS:1}
+  username: ${MQTT_USERNAME:}
+  password: ${MQTT_PASSWORD:}

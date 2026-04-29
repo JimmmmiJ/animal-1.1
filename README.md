@@ -109,6 +109,52 @@ docker compose logs -f
 docker compose down
 ```
 
+## 真实设备接入与模拟上报
+
+系统已预留真实设备遥测接入能力，支持两种方式：
+
+- HTTP 上报：`POST /api/iot/telemetry`
+- MQTT 上报：默认订阅 `livestock/+/telemetry`
+
+默认遥测 API Key：
+
+```text
+demo-iot-key
+```
+
+设备上报 JSON 示例：
+
+```json
+{
+  "deviceSn": "SN100000",
+  "timestamp": "2026-04-29T10:30:00",
+  "temperature": 38.7,
+  "heartRate": 82,
+  "activityLevel": 47,
+  "ruminationTime": 18,
+  "feedingCount": 2,
+  "restingTime": 12,
+  "batteryLevel": 86,
+  "signalStrength": -72
+}
+```
+
+其中 `deviceSn` 需要对应系统设备列表中的设备序列号。演示数据中可直接使用 `SN100000`。
+
+使用 HTTP 模拟设备上报：
+
+```powershell
+.\scripts\simulate-http-telemetry.ps1 -DeviceSn SN100000 -Count 20 -IntervalSeconds 5
+```
+
+使用 MQTT 模拟设备上报：
+
+```powershell
+.\scripts\publish-mqtt-telemetry.ps1 -DeviceSn SN100000 -Count 20 -IntervalSeconds 5
+```
+
+真实设备或网关只要能通过 HTTP Webhook 或 MQTT 发布上述 JSON，就可以接入当前系统。系统会把数据写入 `health_data` 表，并同步更新 `device` 表里的当前体温、活动量、电量、信号和最后上报时间。
+
 ## 注意事项
 
 - `animal-2.0-images.tar` 必须放在项目根目录，否则离线启动脚本无法自动加载镜像。

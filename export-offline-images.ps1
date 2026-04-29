@@ -11,6 +11,7 @@ $outputTar = Join-Path $outputDir "animal-2.0-images.tar"
 $runtimeImages = @(
     "mysql:8.0",
     "redis:7-alpine",
+    "eclipse-mosquitto:2",
     "elasticsearch:8.11.0"
 )
 

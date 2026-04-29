@@ -12,6 +12,7 @@ $logPath = Join-Path $projectDir "start-offline.log"
 $requiredImages = @(
     "mysql:8.0",
     "redis:7-alpine",
+    "eclipse-mosquitto:2",
     "elasticsearch:8.11.0",
     "livestock-health-backend:2.0",
     "livestock-health-frontend:2.0"

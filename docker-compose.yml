@@ -37,6 +37,19 @@ services:
     restart: unless-stopped
     command: redis-server --appendonly yes --requirepass ""
 
+  # MQTT 消息代理，用于真实设备或模拟设备上报遥测数据
+  mqtt:
+    image: eclipse-mosquitto:2
+    container_name: livestock-mqtt
+    ports:
+      - "${MQTT_HOST_PORT:-1883}:1883"
+    volumes:
+      - ./mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - mosquitto_data:/mosquitto/data
+    networks:
+      - livestock-network
+    restart: unless-stopped
+
   # Elasticsearch 搜索引擎
   elasticsearch:
     image: elasticsearch:8.11.0
@@ -73,10 +86,16 @@ services:
       - MYSQL_HOST=mysql
       - REDIS_HOST=redis
       - ELASTICSEARCH_HOST=elasticsearch
+      - MQTT_ENABLED=true
+      - MQTT_BROKER_URL=tcp://mqtt:1883
+      - MQTT_TOPIC=livestock/+/telemetry
+      - IOT_TELEMETRY_API_KEY=demo-iot-key
     depends_on:
       mysql:
         condition: service_healthy
       redis:
+        condition: service_started
+      mqtt:
         condition: service_started
       elasticsearch:
         condition: service_healthy
@@ -106,4 +125,5 @@ networks:
 volumes:
   mysql_data:
   redis_data:
+  mosquitto_data:
   elasticsearch_data:

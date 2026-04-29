@@ -19,6 +19,8 @@ public interface DeviceRepository extends JpaRepository<DeviceEntity, Long> {
 
     Optional<DeviceEntity> findByDeviceId(String deviceId);
 
+    Optional<DeviceEntity> findByDeviceSn(String deviceSn);
+
     List<DeviceEntity> findByFarmId(Long farmId);
 
     Page<DeviceEntity> findByFarmId(Long farmId, Pageable pageable);
