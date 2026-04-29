@@ -27,6 +27,8 @@ public interface HealthDataRepository extends JpaRepository<HealthDataEntity, Lo
     List<HealthDataEntity> findByFarmIdAndDataTimeBetweenOrderByDataTimeDesc(
         Long farmId, LocalDateTime startTime, LocalDateTime endTime);
 
+    HealthDataEntity findTopByFarmIdOrderByDataTimeDesc(Long farmId);
+
     HealthDataEntity findTopByDeviceIdOrderByDataTimeDesc(Long deviceId);
 
     @Query("SELECT AVG(h.temperature) FROM HealthDataEntity h WHERE h.animalId = :animalId AND h.dataTime >= :startTime")

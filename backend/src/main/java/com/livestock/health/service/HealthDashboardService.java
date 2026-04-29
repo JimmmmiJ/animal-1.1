@@ -39,7 +39,7 @@ public class HealthDashboardService {
     private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm");
     private static final List<String> DASHBOARD_TIME_BUCKETS = Arrays.asList("00:00", "04:00", "08:00", "12:00", "16:00", "20:00");
     private static final List<DashboardActivityHeatmapVO.MetricMeta> DASHBOARD_HEATMAP_METRICS = Arrays.asList(
-        DashboardActivityHeatmapVO.MetricMeta.builder().key("activity").label("活动").unit("点").build(),
+        DashboardActivityHeatmapVO.MetricMeta.builder().key("activity").label("活动指数").unit("/100").build(),
         DashboardActivityHeatmapVO.MetricMeta.builder().key("rumination").label("反刍").unit("分钟").build(),
         DashboardActivityHeatmapVO.MetricMeta.builder().key("feeding").label("采食").unit("次").build(),
         DashboardActivityHeatmapVO.MetricMeta.builder().key("resting").label("休息").unit("分钟").build()
@@ -323,7 +323,19 @@ public class HealthDashboardService {
     private List<HealthDataEntity> getRecentDashboardHealthData(Long farmId) {
         LocalDateTime endTime = LocalDateTime.now();
         LocalDateTime startTime = endTime.minusHours(24);
-        return healthDataRepository.findByFarmIdAndDataTimeBetweenOrderByDataTimeDesc(farmId, startTime, endTime);
+        List<HealthDataEntity> records = healthDataRepository.findByFarmIdAndDataTimeBetweenOrderByDataTimeDesc(farmId, startTime, endTime);
+        if (!records.isEmpty()) {
+            return records;
+        }
+
+        HealthDataEntity latestRecord = healthDataRepository.findTopByFarmIdOrderByDataTimeDesc(farmId);
+        if (latestRecord == null || latestRecord.getDataTime() == null) {
+            return records;
+        }
+
+        LocalDateTime fallbackEndTime = latestRecord.getDataTime();
+        LocalDateTime fallbackStartTime = fallbackEndTime.minusHours(24);
+        return healthDataRepository.findByFarmIdAndDataTimeBetweenOrderByDataTimeDesc(farmId, fallbackStartTime, fallbackEndTime);
     }
 
     private List<DashboardStatusSegmentVO> buildHealthStatusDistribution(List<AnimalEntity> animals) {
